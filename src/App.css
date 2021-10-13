@@ -23,6 +23,31 @@ body{
   width: 100vw;
   display: table-cell;
 }
+p{
+  margin: 0;
+}
+.alert-card{
+  background-color: red !important;
+  color: white;
+  padding-bottom: 1rem !important;
+  padding-top: 1rem !important;
+}
+.container{
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 90%);
+  height: auto;
+  padding: 2rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-card *{
+  margin-bottom: 1rem;
+}
 
 .content{
   margin: 5rem;
@@ -42,6 +67,9 @@ body{
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.requests h2{
+  margin-bottom: 1rem;
 }
 .delivery-form{
   display: flex;

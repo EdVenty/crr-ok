@@ -12,12 +12,16 @@ function App() {
         <div className='wave -three'></div>
       </div>
       <div className="text">
-        <a href="https://google.com" className="what-link">Что это?</a>
+        {/* <a href="https://google.com" className="what-link">Что это?</a> */}
         <h1 className="crr-ok">ЦРР О.К.</h1>
       </div>
       <div className="content">
+        <div className="alert-card container">
+          Внимание! Сейчас в холле период большой загруженности! Доставка станет возможной через 5-10 минут.
+        </div>
         <DeliveryForm/>
-        <div className="requests">
+        <div className="container requests">
+          <h2>Текущие заказы</h2>
           <Request 
             from="Кабинет №7"
             to="Тренировочная"
@@ -31,6 +35,14 @@ function App() {
             status="waiting"
             fromMe={true}
           />
+        </div>
+        <div className="container info-card">
+          <h2>Что такое ЦРР ОК?</h2>
+          {/* <p>ЦРР ОК - это система роботов-доставщиков, работающих в Центре Развития Робототехники.</p> */}
+          {/* <p>Роботы оснащёны лидаром, камерой и другими датчиками, что делает их нахождение в помещении безопасным.</p>
+          <p>На данным момент проходит программа тестирования. Для офромления доставки робота из одного кабинета в другой воспользуйтесь формой выше. Робот автоматически заберёт заказ из пункта отправления и доставит его в пункт получения.</p>
+          <p>После получения заказа робот подъезджает к двери пункта отправления и в кабинете активируется Бипер-3000. Робот забирает заказ и процедура повторяется с пунктом получения.</p> */}
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod iusto soluta, a asperiores voluptates velit delectus eveniet at nisi assumenda quam officia unde, rerum sed odit ullam placeat laborum voluptas?</p>
         </div>
       </div>
     </div>
