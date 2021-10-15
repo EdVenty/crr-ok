@@ -23,8 +23,15 @@ body{
   width: 100vw;
   display: table-cell;
 }
+a{
+  text-decoration: none;
+}
 p{
   margin: 0;
+}
+.MuiButton-root{
+  padding: 0.7rem !important;
+  border-radius: 100rem !important;
 }
 .alert-card{
   background-color: red !important;

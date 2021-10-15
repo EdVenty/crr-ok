@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import { AlertMessage } from './stories/AlertMessage';
 import { DeliveryForm } from './stories/DeliveryForm';
 import { Request } from './stories/Requests';
 
@@ -13,12 +14,10 @@ function App() {
       </div>
       <div className="text">
         {/* <a href="https://google.com" className="what-link">Что это?</a> */}
-        <h1 className="crr-ok">ЦРР О.К.</h1>
+        <a href="#info"><h1 className="crr-ok">ЦРР О.К.</h1></a>
       </div>
       <div className="content">
-        <div className="alert-card container">
-          Внимание! Сейчас в холле период большой загруженности! Доставка станет возможной через 5-10 минут.
-        </div>
+        <AlertMessage/>
         <DeliveryForm/>
         <div className="container requests">
           <h2>Текущие заказы</h2>
@@ -36,7 +35,7 @@ function App() {
             fromMe={true}
           />
         </div>
-        <div className="container info-card">
+        <div className="container info-card" id='info'>
           <h2>Что такое ЦРР ОК?</h2>
           {/* <p>ЦРР ОК - это система роботов-доставщиков, работающих в Центре Развития Робототехники.</p> */}
           {/* <p>Роботы оснащёны лидаром, камерой и другими датчиками, что делает их нахождение в помещении безопасным.</p>

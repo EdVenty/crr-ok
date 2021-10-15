@@ -1,0 +1,5 @@
+{
+    "page.index.delivery-alert-message.overflow": "Внимание! Сейчас в холле период большой загруженности! Доставка станет возможной через 5-10 минут.",
+    "page.index.delivery-alert-message.robot-broken": "Внимание! Робот находится на тех.обслуживании! На данный момент доставка не доступна!",
+    "page.index.delivery-alery-message.unknown": "Внимание! На данный момент доставка недоступна!"
+}

@@ -12,6 +12,7 @@
     "@types/node": "^16.10.3",
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
+    "@types/redux": "^3.6.0",
     "@types/styled-components": "^5.1.14",
     "babel-loader": "8.1.0",
     "react": "^17.0.2",
@@ -78,6 +79,7 @@
   },
   "devDependencies": {
     "@emotion/styled": "^11.3.0",
+    "@reduxjs/toolkit": "^1.6.2",
     "@storybook/addon-actions": "^6.3.9",
     "@storybook/addon-essentials": "^6.3.9",
     "@storybook/addon-links": "^6.3.9",
@@ -88,6 +90,7 @@
     "@storybook/theming": "^6.3.9",
     "babel-plugin-styled-components": "^1.13.2",
     "gh-pages": "^3.2.3",
+    "redux": "^4.1.1",
     "storybook-addon-theme-playground": "^2.1.0",
     "styled-components": "^5.3.1"
   }

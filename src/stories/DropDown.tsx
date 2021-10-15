@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import '../stories/dropDown.css';
-import Select, { SingleValue } from 'react-select';
+import Select, { SingleValue, StylesConfig } from 'react-select';
 
 interface IChangeCallback{
-    value: string, label: string
+    value: any, label: string
 };
 
 export interface ITextBoxProps{
@@ -22,7 +22,6 @@ export interface ITextBoxProps{
 //     font-family: ${({theme}) => theme.fontBase};
 // `
 
-
 export const DropDown = ({
     width = 'match-parent',
     values = [
@@ -36,6 +35,8 @@ export const DropDown = ({
     ...props
 }: ITextBoxProps) => {
     return <Select
+        className="drop-down"
+        classNamePrefix="drop-down"
         isDisabled={isDisabled}
         defaultValue={defaultValue}
         onChange={onChangeCallback}

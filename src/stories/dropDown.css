@@ -1,0 +1,11 @@
+.drop-down__control{
+    padding: 0.3rem;
+    border-radius: 100rem !important;
+}
+.drop-down__menu{
+    overflow: hidden;
+    border-radius: 1rem !important;
+}
+.drop-down__option{
+    padding: 0.7rem !important;
+}

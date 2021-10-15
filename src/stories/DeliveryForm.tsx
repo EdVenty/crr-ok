@@ -7,6 +7,8 @@ import { DropDown } from "./DropDown";
 import Button from '@mui/material/Button/Button';
 import LinearProgress from '@mui/material/LinearProgress';
 import { CircularProgress } from "@mui/material";
+import { store } from "./store";
+import { EDisabledReason, setDeliveryDisabledReason, setDeliveryOff, setDeliveryOn } from "./delivery";
 
 const FormDiv = styled.div`
     background: ${({theme}) => theme.colorSecondary};
@@ -26,10 +28,11 @@ export interface IDeliveryFormState{
     deliveryFrom?: string,
     deliveryTo?: string,
     sending?: boolean,
-    deliveryApproved?: boolean
+    deliveryApproved?: boolean,
+    disabled?: boolean
 };
 export interface IDropDownValues{
-    value: string,
+    value: any,
     label: string
 }
 
@@ -52,6 +55,14 @@ export class DeliveryForm extends React.PureComponent<IDeliveryFormProps, IDeliv
         };
         this.sendDelivery = this.sendDelivery.bind(this);
         this.acceptedDelivery = this.acceptedDelivery.bind(this);
+    }
+    componentDidMount(){
+        store.subscribe(() => {
+            this.setState({
+                disabled: store.getState().deliveryDisabled
+            });
+        });
+        store.dispatch(setDeliveryDisabledReason(EDisabledReason.hallOverlow));
     }
     sendDelivery(){
         this.setState({
@@ -76,7 +87,7 @@ export class DeliveryForm extends React.PureComponent<IDeliveryFormProps, IDeliv
             <FormElementDiv>
                 <p>Пункт отправления</p>
                 <DropDown 
-                    isDisabled={this.state.sending}
+                    isDisabled={this.state.disabled}
                     values={stations.filter(({value}) => value !== this.state.deliveryTo)}
                     onChangeCallback={newValue => this.setState({deliveryFrom: newValue?.value})}
                     defaultValue={stations[0]}
@@ -85,15 +96,28 @@ export class DeliveryForm extends React.PureComponent<IDeliveryFormProps, IDeliv
             <FormElementDiv>
                 <p>Пункт получения</p>
                 <DropDown 
-                    isDisabled={this.state.sending}
+                    isDisabled={this.state.disabled}
                     values={stations.filter(({value}) => value !== this.state.deliveryFrom)}
                     onChangeCallback={newValue => this.setState({deliveryTo: newValue?.value})}
                     defaultValue={stations[1]}
                 />
             </FormElementDiv>
-            <Button variant="contained" onClick={() => this.sendDelivery()} disabled={this.state.sending}>
+            <Button variant="contained" onClick={() => this.sendDelivery()} disabled={this.state.disabled || this.state.sending}>
                 Отправить робота
                 {this.state.sending ? <CircularProgress style={{position: 'absolute'}} size='2rem'/> : null}
+            </Button>
+            [ТЕСТ] Алерт-месседж
+            <DropDown 
+                values={[
+                    {value: EDisabledReason.unknown, label: 'Неизвестно'},
+                    {value: EDisabledReason.robotBroken, label: 'Тех-работы'},
+                    {value: EDisabledReason.hallOverlow, label: 'Холл заполнен'}
+                ]}
+                onChangeCallback={newValue => store.dispatch(setDeliveryDisabledReason(newValue?.value))}
+                defaultValue={{value: EDisabledReason.hallOverlow, label: 'Холл заполнен'}}
+            />
+            <Button variant="contained" onClick={() => store.dispatch(store.getState().deliveryDisabled ? setDeliveryOn() : setDeliveryOff())}>
+                [ТЕСТ] Переключить возможность доставки
             </Button>
             {this.state.deliveryApproved ? 
             <div>
