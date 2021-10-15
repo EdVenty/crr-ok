@@ -7,7 +7,8 @@ interface IProps {
     clientName: string,
     fromMe?: boolean,
     interactive?: boolean,
-    status: 'waiting' | 'toSender' | 'toGetter'
+    status: 'waiting' | 'toSender' | 'toGetter',
+    prefix?: string
 }
 interface IState {
     status: 'waiting' | 'toSender' | 'toGetter'
@@ -32,15 +33,15 @@ export class Request extends React.PureComponent<IProps, IState>{
         return this.state.status;
     }
     render() {
-        return <div className="delivery-request-container">
-            <div className={`delivery-request ${this.props.fromMe ? 'delivery-request-my' : 'delivery-request-other'}`}>
-                <h4 className="delivery-request-client">{this.props.clientName}</h4>
-                <div className="delivery-request-points">
+        return <div className={`delivery-request-container ${this.props.prefix}-delivery-request-container`}>
+            <div className={`delivery-request ${this.props.prefix}-delivery-request ${this.props.fromMe ? 'delivery-request-my ' + this.props.prefix + '-delivery-request-my' : 'delivery-request-other ' + this.props.prefix + '-delivery-request-other'}`}>
+                <h4 className={`delivery-request-client ${this.props.prefix}-delivery-request-client`}>{this.props.clientName}</h4>
+                <div className={`delivery-request-points ${this.props.prefix}-delivery-request-points`}>
                     <p>{this.props.from}</p>
-                    <img src="https://img.icons8.com/ios/100/000000/van.png" className="delivery-icon"/>
+                    <img src="https://img.icons8.com/ios/100/000000/van.png" className="delivery-icon" alt="van"/>
                     <p>{this.props.to}</p>
                 </div>
-                <p className="delivery-request-status">{this.evalStatus()}</p>
+                <p className={`delivery-request-status ${this.props.prefix}-delivery-request-status`}>{this.evalStatus()}</p>
             </div>
         </div>
     }

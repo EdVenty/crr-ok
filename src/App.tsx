@@ -16,6 +16,17 @@ function App() {
         {/* <a href="https://google.com" className="what-link">Что это?</a> */}
         <a href="#info"><h1 className="crr-ok">ЦРР О.К.</h1></a>
       </div>
+      <div className="container current-request-container">
+        <h3>Ваш заказ</h3>
+        <Request 
+          from="Тренировочная"
+          to="Кабинет №1"
+          clientName="Edventy"
+          status="waiting"
+          fromMe={true}
+          prefix='current'
+        />
+      </div>
       <div className="content">
         <AlertMessage/>
         <DeliveryForm/>

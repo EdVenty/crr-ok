@@ -32,3 +32,8 @@
     margin: -0.5rem -2rem;
     padding: 0.5rem 2rem;
 }
+.current-delivery-request{
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+}
