@@ -106,19 +106,6 @@ export class DeliveryForm extends React.PureComponent<IDeliveryFormProps, IDeliv
                 Отправить робота
                 {this.state.sending ? <CircularProgress style={{position: 'absolute'}} size='2rem'/> : null}
             </Button>
-            [ТЕСТ] Алерт-месседж
-            <DropDown 
-                values={[
-                    {value: EDisabledReason.unknown, label: 'Неизвестно'},
-                    {value: EDisabledReason.robotBroken, label: 'Тех-работы'},
-                    {value: EDisabledReason.hallOverlow, label: 'Холл заполнен'}
-                ]}
-                onChangeCallback={newValue => store.dispatch(setDeliveryDisabledReason(newValue?.value))}
-                defaultValue={{value: EDisabledReason.hallOverlow, label: 'Холл заполнен'}}
-            />
-            <Button variant="contained" onClick={() => store.dispatch(store.getState().deliveryDisabled ? setDeliveryOn() : setDeliveryOff())}>
-                [ТЕСТ] Переключить возможность доставки
-            </Button>
             {this.state.deliveryApproved ? 
             <div>
                 <p>

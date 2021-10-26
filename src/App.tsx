@@ -1,8 +1,12 @@
 // import logo from './logo.svg';
+import { Button } from '@mui/material';
 import './App.css';
 import { AlertMessage } from './stories/AlertMessage';
+import { EDisabledReason, setDeliveryDisabledReason, setDeliveryOn, setDeliveryOff } from './stories/delivery';
 import { DeliveryForm } from './stories/DeliveryForm';
+import { DropDown } from './stories/DropDown';
 import { Request } from './stories/Requests';
+import { store } from './stories/store';
 
 function App() {
   return (
@@ -21,11 +25,12 @@ function App() {
         <Request 
           from="Тренировочная"
           to="Кабинет №1"
-          clientName="Edventy"
-          status="waiting"
+          clientName="Я"
+          status="openGetter"
           fromMe={true}
           prefix='current'
         />
+        <Button>Открыть крышку</Button>
       </div>
       <div className="content">
         <AlertMessage/>
@@ -45,6 +50,21 @@ function App() {
             status="waiting"
             fromMe={true}
           />
+        </div>
+        <div className="container test-box">
+          [ТЕСТ] Алерт-месседж
+          <DropDown 
+              values={[
+                  {value: EDisabledReason.unknown, label: 'Неизвестно'},
+                  {value: EDisabledReason.robotBroken, label: 'Тех-работы'},
+                  {value: EDisabledReason.hallOverlow, label: 'Холл заполнен'}
+              ]}
+              onChangeCallback={newValue => store.dispatch(setDeliveryDisabledReason(newValue?.value))}
+              defaultValue={{value: EDisabledReason.hallOverlow, label: 'Холл заполнен'}}
+          />
+          <Button variant="contained" onClick={() => store.dispatch(store.getState().deliveryDisabled ? setDeliveryOn() : setDeliveryOff())}>
+              [ТЕСТ] Переключить возможность доставки
+          </Button>
         </div>
         <div className="container info-card" id='info'>
           <h2>Что такое ЦРР ОК?</h2>

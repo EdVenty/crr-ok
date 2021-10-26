@@ -7,11 +7,11 @@ interface IProps {
     clientName: string,
     fromMe?: boolean,
     interactive?: boolean,
-    status: 'waiting' | 'toSender' | 'toGetter',
+    status: 'waiting' | 'toSender' | 'toGetter' | 'openGetter' | 'openSender',
     prefix?: string
 }
 interface IState {
-    status: 'waiting' | 'toSender' | 'toGetter'
+    status: 'waiting' | 'toSender' | 'toGetter' | 'openGetter' | 'openSender'
 }
 
 export class Request extends React.PureComponent<IProps, IState>{
@@ -29,6 +29,10 @@ export class Request extends React.PureComponent<IProps, IState>{
                 return "в пути к получателю";
             case 'toSender':
                 return "в пути к отправителю"; 
+            case 'openGetter':
+                return 'прибыл к получателю';
+            case 'openSender':
+                return 'прибыл к отправителю';
         }
         return this.state.status;
     }
