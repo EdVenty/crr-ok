@@ -1,0 +1,39 @@
+.delivery-request{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.delivery-request-client{
+    margin-right: 1rem;
+}
+.delivery-request-container{
+    margin-bottom: 1rem;
+}
+.delivery-icon{
+    width: 30px;
+    height: 30px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.delivery-request-points{
+    display: flex;
+    width: fit-content;
+    justify-content: space-between;
+}
+.delivery-request-status{
+    margin-right: 0;
+    margin-left: auto;
+    
+}
+.delivery-request-my{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background: #fff;
+    margin: -0.5rem -2rem;
+    padding: 0.5rem 2rem;
+}
+.current-delivery-request{
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+}

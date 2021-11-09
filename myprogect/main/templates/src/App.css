@@ -49,7 +49,7 @@ p{
   padding: 2rem;
   padding-bottom: 1rem;
   border-radius: 20px;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .info-card *{
@@ -84,9 +84,9 @@ p{
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 90%);
   height: auto;
-  padding: 1rem 2rem;
+  padding: 2rem;
   border-radius: 20px;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 .crr-ok{
   color: white;
@@ -293,14 +293,4 @@ p{
 }
 .MuiOutlinedInput-input{
   padding: 0 !important;
-}
-::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
-}
-.MuiAccordion-root.Mui-expanded{
-  border-radius: 20px !important;
-}
-.MuiAccordion-root{
-  transition: border-radius 0.5s !important;
 }
